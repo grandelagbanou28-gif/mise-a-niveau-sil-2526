@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UATM-GASA Formation - Le Generateur d'Avenir</title>
+    <meta name="description" content="UATM-GASA Formation, premiere universite privee du Benin depuis 1992. 23 filieres agreées en sciences, agronomie, droit et gestion. Licence et Master.">
+    <link rel="icon" type="image/webp" href="images/logo.webp">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .conteneur {
+            width: 1100px;
+            max-width: 92%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .barre {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo span {
+            font-size: 16px;
+            font-weight: 700;
+            color: #212330;
+        }
+
+        .logo span i {
+            font-style: normal;
+            color: #ce453f;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            font-size: 14.5px;
+            color: #212330;
+        }
+
+        nav a:hover {
+            color: #ce453f;
+        }
+
+        nav a.bouton {
+            background: #ce453f;
+            color: #ffffff;
+            padding: 9px 20px;
+            border-radius: 4px;
+        }
+
+        nav a.bouton:hover {
+            background: #b83a35;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 62px 0;
+            scroll-margin-top: 76px;
+        }
+
+        .banniere {
+            position: relative;
+            background: linear-gradient(rgba(28, 30, 44, 0.68), rgba(28, 30, 44, 0.68)), url("images/IMG_1690-scaled.webp") center 40% / cover no-repeat;
+            color: #ffffff;
+            padding: 96px 0;
+            text-align: center;
+        }
+
+        .banniere h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .banniere p {
+            font-size: 17px;
+            max-width: 640px;
+            margin: 0 auto 28px;
+            color: #e4e5ea;
+        }
+
+        .banniere .cta {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-rouge, .btn-cle {
+            display: inline-block;
+            padding: 13px 28px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .btn-rouge {
+            background: #ce453f;
+            color: #ffffff;
+        }
+
+        .btn-rouge:hover {
+            background: #b83a35;
+        }
+
+        .btn-cle {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #ffffff;
+        }
+
+        .btn-cle:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .titre-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 36px;
+        }
+
+        .titre-section h2 {
+            font-size: 30px;
+            color: #212330;
+            margin-bottom: 10px;
+        }
+
+        .titre-section p {
+            color: #6b7280;
+            font-size: 15.5px;
+        }
+
+        .titre-section .surtitre {
+            font-size: 12.5px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #ce453f;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .titre-section .trait {
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #ce453f;
+            border-radius: 2px;
+            margin: 14px auto 0;
+        }
+
+        .partenaires-grille {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .partenaire {
+            background: #f5f6f8;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            height: 106px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .partenaire:hover {
+            border-color: #cbb58c;
+            box-shadow: 0 4px 12px rgba(33, 35, 48, 0.08);
+        }
+
+        .partenaire img {
+            max-height: 50px;
+            max-width: 100%;
+            object-fit: contain;
+            filter: grayscale(1);
+            opacity: 0.7;
+            transition: filter 0.3s, opacity 0.3s;
+        }
+
+        .partenaire:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .histoire-liste {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .etape {
+            display: flex;
+            gap: 26px;
+            padding: 18px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .etape:first-child {
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .etape .annee {
+            min-width: 108px;
+            font-size: 19px;
+            font-weight: 700;
+            color: #ce453f;
+            padding-top: 2px;
+        }
+
+        .etape h3 {
+            font-size: 16.5px;
+            color: #212330;
+            margin-bottom: 5px;
+        }
+
+        .etape p {
+            font-size: 14.5px;
+            color: #555555;
+        }
+
+        .piliers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .pilier {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-top: 3px solid #ce453f;
+            border-radius: 6px;
+            padding: 22px;
+        }
+
+        .pilier .num {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d8d3c8;
+        }
+
+        .pilier h3 {
+            font-size: 17px;
+            color: #212330;
+            margin: 6px 0 10px;
+        }
+
+        .pilier p {
+            font-size: 14.5px;
+            color: #555555;
+        }
+
+        .fondateur q {
+            display: block;
+            font-size: 13.5px;
+            font-style: italic;
+            color: #555555;
+            margin-top: 8px;
+        }
+
+        .grille {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 22px;
+        }
+
+        .filiere {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .filiere:hover {
+            border-color: #ce453f;
+            box-shadow: 0 6px 16px rgba(33, 35, 48, 0.1);
+        }
+
+        .filiere .visuel {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .filiere .visuel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .filiere .corps {
+            padding: 14px 16px 16px;
+        }
+
+        .filiere .ufr {
+            display: block;
+            font-size: 10.5px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 6px;
+        }
+
+        .filiere h3 {
+            font-size: 16px;
+            color: #212330;
+            line-height: 1.35;
+            min-height: 44px;
+        }
+
+        .filiere .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .filiere .badges span {
+            font-size: 11.5px;
+            color: #555555;
+            background: #f5f6f8;
+            border: 1px solid #e5e7eb;
+            border-radius: 3px;
+            padding: 3px 8px;
+        }
+
+        .filiere .desc {
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: #555555;
+            margin-top: 10px;
+        }
+
+        .filiere details {
+            border-top: 1px solid #eeeeee;
+            margin-top: 10px;
+            padding-top: 8px;
+        }
+
+        .filiere summary {
+            font-size: 13px;
+            font-weight: 600;
+            color: #ce453f;
+            cursor: pointer;
+        }
+
+        .filiere summary:hover {
+            text-decoration: underline;
+        }
+
+        .filiere details ul {
+            margin: 8px 0 2px 17px;
+        }
+
+        .filiere details li {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 4px;
+        }
+
+        .filiere .mat {
+            font-size: 12.5px;
+            color: #666666;
+            margin-top: 8px;
+        }
+
+        .filiere .mat b {
+            color: #212330;
+        }
+
+        .apropos {
+            background: #f5f6f8;
+        }
+
+        .apropos-grille {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .apropos-visuel {
+            position: relative;
+        }
+
+        .apropos-photo {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .badge-exp {
+            position: absolute;
+            left: 14px;
+            bottom: -18px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #ce453f;
+            border-radius: 4px;
+            padding: 10px 18px;
+            box-shadow: 0 8px 18px rgba(33, 35, 48, 0.14);
+            font-size: 13px;
+            color: #555555;
+        }
+
+        .badge-exp b {
+            display: block;
+            font-size: 27px;
+            line-height: 1.1;
+            color: #ce453f;
+        }
+
+        .apropos-texte .surtitre {
+            font-size: 12.5px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #ce453f;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .apropos-texte h2 {
+            font-size: 27px;
+            line-height: 1.25;
+            color: #212330;
+            margin-bottom: 14px;
+        }
+
+        .apropos-texte p {
+            color: #555555;
+            margin-bottom: 14px;
+            font-size: 15.5px;
+        }
+
+        .points {
+            list-style: none;
+            margin: 18px 0 4px;
+        }
+
+        .points li {
+            position: relative;
+            padding: 7px 0 7px 32px;
+            font-size: 15px;
+            color: #444444;
+        }
+
+        .points li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 21px;
+            height: 21px;
+            background: #ce453f;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 21px;
+            text-align: center;
+        }
+
+        .lien-plein {
+            display: inline-block;
+            margin: 8px 0 4px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #ce453f;
+        }
+
+        .lien-plein:hover {
+            text-decoration: underline;
+        }
+
+        .fondateur {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #ce453f;
+            border-radius: 4px;
+            padding: 14px 16px;
+            margin-top: 20px;
+        }
+
+        .fondateur img {
+            width: 96px;
+            height: 110px;
+            object-fit: contain;
+            object-position: bottom;
+            background: #f5f6f8;
+            border-radius: 4px;
+        }
+
+        .fondateur strong {
+            display: block;
+            font-size: 17px;
+            color: #212330;
+        }
+
+        .fondateur span {
+            display: block;
+            font-size: 12.5px;
+            color: #ce453f;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 3px;
+        }
+
+        .fondateur p {
+            font-size: 13.5px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .chiffres {
+            display: flex;
+            border-top: 1px solid #dcdfe5;
+            border-bottom: 1px solid #dcdfe5;
+            margin-top: 42px;
+        }
+
+        .chiffres div {
+            flex: 1;
+            text-align: center;
+            padding: 16px 8px;
+            border-left: 1px solid #dcdfe5;
+        }
+
+        .chiffres div:first-child {
+            border-left: none;
+        }
+
+        .chiffres b {
+            display: block;
+            font-size: 24px;
+            color: #212330;
+        }
+
+        .chiffres span {
+            display: block;
+            font-size: 12.5px;
+            color: #6b7280;
+            margin-top: 3px;
+        }
+
+        .contact-grille {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info h3, .contact-form h3 {
+            font-size: 21px;
+            color: #212330;
+            margin-bottom: 18px;
+        }
+
+        .contact-info .ligne {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .contact-info .ligne:first-of-type {
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .contact-info .ligne b {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #9ca3af;
+            margin-bottom: 3px;
+        }
+
+        .contact-info .ligne span, .contact-info .ligne a {
+            font-size: 15.5px;
+            color: #212330;
+        }
+
+        .contact-info .ligne a:hover {
+            color: #ce453f;
+        }
+
+        .contact-form {
+            background: #f5f6f8;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 26px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 6px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 11px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #dcdfe5;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 15px;
+            background: #ffffff;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #ce453f;
+        }
+
+        .contact-form textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #ce453f;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 13px 28px;
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #b83a35;
+        }
+
+        footer {
+            background: #212330;
+            color: #b9bcc8;
+            padding: 26px 0;
+            font-size: 14px;
+        }
+
+        .pied {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .pied .logo span {
+            color: #ffffff;
+        }
+
+        .pied p a {
+            color: #e4e5ea;
+        }
+
+        .pied p a:hover {
+            color: #cbb58c;
+        }
+
+        @media (max-width: 860px) {
+            .banniere h1 {
+                font-size: 30px;
+            }
+
+            .apropos-grille, .contact-grille {
+                grid-template-columns: 1fr;
+            }
+
+            .chiffres {
+                flex-wrap: wrap;
+            }
+
+            .chiffres div {
+                flex: 1 1 45%;
+                border-left: none;
+            }
+
+            .partenaires-grille {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .piliers {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .grille {
+                grid-template-columns: 1fr;
+            }
+
+            .chiffres div {
+                flex: 1 1 100%;
+            }
+
+            .partenaires-grille {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .etape {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .etape .annee {
+                min-width: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="conteneur barre">
+            <a class="logo" href="#accueil">
+                <img src="images/logo.webp" alt="Logo UATM-GASA Formation">
+                <span>UATM<i>-GASA</i> Formation</span>
+            </a>
+            <nav>
+                <a href="#accueil">Accueil</a>
+                <a href="#formations">Formations</a>
+                <a href="#apropos">À propos</a>
+                <a href="#contact">Contact</a>
+                <a class="bouton" href="#contact">S'inscrire</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banniere" id="accueil">
+        <div class="conteneur">
+            <h1>UATM-GASA Formation</h1>
+            <p>Le Générateur d'Avenir. Première université privée du Bénin depuis 1992 : 23 filières agréées en sciences, agronomie, droit et gestion.</p>
+            <div class="cta">
+                <a class="btn-rouge" href="#formations">Voir nos formations</a>
+                <a class="btn-cle" href="#contact">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="formations">
+        <div class="conteneur">
+            <div class="titre-section">
+                <h2>Nos formations</h2>
+                <p>Quatre unités de formation et de recherche, 23 filières agréées par l'État béninois, de la licence au master. Ouvrez le détail de chaque fiche pour voir ses débouchés, ses matières et son matériel.</p>
+            </div>
+
+            <div class="grille">
+                <article class="filiere">
+                    <div class="visuel"><img src="images/rit.webp" alt="Réseaux Informatiques et Télécommunications"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Réseaux Informatiques et Télécommunications</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation de cadres techniques capables d'exercer les métiers liés à l'installation, la gestion, la sécurisation et la maintenance des réseaux. Tous les types de réseaux sont concernés : réseau de transmission, RTC, réseaux mobiles (GSM), réseaux de données (LAN, WAN, Ethernet, IP, QoS), réseaux d'accès haut débit (ADSL, SHDLS, VDSL), FTTH et accès fibre optique, Voix sur IP, Télévision numérique.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Administrateur de réseaux</li>
+                                <li>Responsable d'exploitation</li>
+                                <li>Responsable maintenance réseau</li>
+                                <li>Architecte systèmes de communications</li>
+                                <li>Ingénieur télécoms</li>
+                                <li>Consultant sécurité réseau</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Fibre optique, Transmission, Commutation Téléphonie, Réseaux mobiles (GSM), LAN, WAN, ADSL, Ethernet, Internet, Voix sur IP, Télévision numérique</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Salle de TP réseaux, ateliers de soudure fibre optique, salle informatique de 50+ PCs, Internet en libre accès 24h/24</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/SIL.webp" alt="Systèmes Informatiques et Logiciels"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Systèmes Informatiques et Logiciels</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Développement d'applications de tout type : web, mobile Android, jeux vidéo, bases de données, systèmes Linux. Gestion de projets d'intelligence artificielle et Big Data. En associant programmation et génie logiciel, la formation couvre toute la chaîne de développement.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Administrateur base de données</li>
+                                <li>Développeur web</li>
+                                <li>Développeur mobile</li>
+                                <li>Développeur système</li>
+                                <li>Ingénieur IA / Big Data</li>
+                                <li>Chef de projet digital</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Merise, Programmation web (HTML, CSS, JS, PHP), Programmation mobile, UML, Langages C/C++, Java, Bases de données SQL Server, Oracle, Génie logiciel, Téléinformatique et réseaux, Algorithmique orientée objet, IA, Big Data</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Serveur en ligne pour héberger les applications étudiantes, salle informatique 50+ PCs, Internet 24h/24</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/si.webp" alt="Systèmes Industriels"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Systèmes Industriels</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Filière à l'interface entre l'Électricité, l'Électronique, l'Électrotechnique, l'Automatisme, l'Énergie solaire et la Domotique. Formation de cadres à compétences multi-techniques capables de concevoir et maintenir des systèmes complexes.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Ingénieur automaticien</li>
+                                <li>Technicien en électrotechnique</li>
+                                <li>Responsable maintenance industrielle</li>
+                                <li>Technicien domotique</li>
+                                <li>Chef de production</li>
+                                <li>Ingénieur énergie solaire</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Électrotechnique, Électronique de puissance, analogique et numérique, Automatique, Traitement du signal, Informatique industrielle, Énergie renouvelable, Modélisation et commande des systèmes embarqués, Conversion et gestion de l'énergie, Programmation web et mobile, C/C++, Java, Bases de données</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Laboratoires d'électronique, d'électrotechnique, bancs de mesure et d'essai</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/DSC00090-scaled.webp" alt="Biotechnologie"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Biotechnologie</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Les biologistes sont présents dans l'agroalimentaire, la santé, les cosmétiques, l'environnement. Formation de compétences scientifiques, techniques et opérationnelles dans l'industrie agroalimentaire et la recherche. Participation à l'élaboration de nouveaux produits, analyses physico-chimiques et microbiologiques, contrôle de produits.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Technicien de laboratoire</li>
+                                <li>Responsable contrôle qualité</li>
+                                <li>Ingénieur en agroalimentaire</li>
+                                <li>Chercheur en biotechnologie</li>
+                                <li>Nutritionniste</li>
+                                <li>Bio-informaticien</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Génie des procédés agroalimentaires, Procédés de transformation, Contrôle Qualité et Normes, Chimie analytique, Nutrition, Toxicologie, Biochimie, Biologie cellulaire, Immunologie, Microbiologie</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> 1 salle TP Contrôle qualité (Chimie et Biochimie), 1 salle TP Transformation et Microbiologie</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/GEER.webp" alt="Génie Électrique et Énergie Renouvelable"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Génie Électrique et Énergie Renouvelable</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Énergie solaire photovoltaïque et thermique, éolienne, biomasse, efficacité énergétique, dimensionnement d'installations, transition écologique et audit énergétique. Smart grid, stockage d'énergie, gestion intelligente de l'énergie.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Ingénieur énergie solaire</li>
+                                <li>Auditeur énergétique</li>
+                                <li>Chef de projet énergies renouvelables</li>
+                                <li>Technicien en installation solaire</li>
+                                <li>Consultant environnement</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Électrotechnique, Énergies renouvelables, Photovoltaïque, Éolien, Onduleur, Stockage d'énergie, Smart grid, Convertisseur, Automatisme, Réseaux électriques, Bilan énergétique, Thermodynamique</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/SEI.webp" alt="Sécurité Informatique"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Sécurité Informatique</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation de spécialistes capables de protéger les systèmes informatiques, les réseaux et les données contre les menaces numériques. Compétences en analyse des vulnérabilités, conception d'architectures sécurisées, mise en œuvre de politiques de sécurité, audit et gestion de crise. Conformité RGPD, ISO 27001.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Analyste cybersécurité</li>
+                                <li>Pentester / Ethical hacker</li>
+                                <li>RSSI</li>
+                                <li>Opérateur SOC (Security Operation Center)</li>
+                                <li>Auditeur sécurité informatique</li>
+                                <li>Consultant conformité RGPD</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Cryptographie, Sécurité des réseaux, Systèmes d'exploitation sécurisés, Audit et test de vulnérabilité, Gestion des incidents, Analyse de malwares, Normes et législation cybersécurité, Développement sécurisé, Éthique du hacker, Pentest</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/IIM.webp" alt="Informatique Industrielle et Maintenance"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Informatique Industrielle et Maintenance</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Spécialité combinant automatisme, informatique embarquée, électronique industrielle et maintenance des systèmes automatisés. Formation de techniciens et ingénieurs capables de concevoir, programmer, superviser et maintenir les systèmes industriels intelligents. Rôle clé dans la transformation numérique des industries (Industrie 4.0).</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Ingénieur maintenance industrielle</li>
+                                <li>Automaticien</li>
+                                <li>Technicien systèmes embarqués</li>
+                                <li>Responsable instrumentation</li>
+                                <li>Superviseur SCADA</li>
+                                <li>Intégrateur Industrie 4.0</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Automatique, Langages industriels (Ladder, Grafcet, ST, C), Maintenance des systèmes, Réseaux industriels (Modbus, Profibus, Ethernet/IP), Informatique embarquée, Électronique de puissance, Capteurs et actionneurs, Supervision SCADA, Robotique industrielle, GMAO, IHM, Cybersécurité industrielle</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/FC.webp" alt="Froid et Climatisation"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences et Techniques</span>
+                        <h3>Froid et Climatisation</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation de techniciens et ingénieurs spécialisés dans la conception, l'installation, la maintenance et le dépannage des systèmes de production de froid et de conditionnement d'air. Domaines : froid industriel, froid commercial, climatisation résidentielle, réfrigération et systèmes thermodynamiques. Secteurs clés : agroalimentaire, médical, transport frigorifique, bâtiments.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Technicien frigoriste</li>
+                                <li>Ingénieur climatisation</li>
+                                <li>Responsable maintenance CVC</li>
+                                <li>Technicien en froid industriel</li>
+                                <li>Auditeur énergétique</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Thermodynamique, Réfrigération, Climatisation, Génie climatique, Froid industriel et commercial, Énergie thermique, Gaz frigorigène, Pompe à chaleur, Automatisme, Bilan thermique, Performance énergétique, Sécurité et Environnement</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/PA.webp" alt="Production Animale"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Agronomiques</span>
+                        <h3>Production Animale</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation de spécialistes de l'élevage et de la filière animale, disposant de solides connaissances dans l'ensemble des techniques de production animale. L'étudiant apprend la conduite d'élevage sous tous ses aspects : qualité de l'alimentation, croissance, reproduction, manipulations et interventions sur les animaux, surveillance sanitaire, bien-être animal, conception des bâtiments.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Chef d'exploitation</li>
+                                <li>Responsable d'élevage</li>
+                                <li>Conseiller technique ou commercial</li>
+                                <li>Responsable aménagement et gestion des pêches</li>
+                                <li>Entrepreneur agricole</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Alimentation des mono et polygastriques (Porcs, Lapins, Volailles), Zootechnie, Biologie animale, Chimie, Diagnostic technique et financier, Conception de bâtiments d'élevage</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Supports de cours, planches de révision, salle de TP, ferme d'application en production animale</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/PV.webp" alt="Production Végétale"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Agronomiques</span>
+                        <h3>Production Végétale</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation de spécialistes de l'ensemble des domaines de la culture : plantes maraîchères, pérennes, légumineuses, fourragères, céréales et oléagineux. Compétences en définition des objectifs de rendement, conseil agricole, refonte de systèmes de culture.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Entrepreneur agricole</li>
+                                <li>Conseiller agricole</li>
+                                <li>Chef d'exploitation agricole</li>
+                                <li>Chercheur en agronomie</li>
+                                <li>Responsable cultures</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Potentialités agronomiques du sol, Engrais et amendements, Biologie végétale, Physiologie végétale, Conservation et stockage des produits, Amélioration génétique des plantes, Phytopathologie, Expérimentation agricole</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Ferme d'application de production végétale de 250 hectares, bibliothèque, laboratoires, salles de TP</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/AE.webp" alt="Agro-Économie"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Agronomiques</span>
+                        <h3>Agro-Économie</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Économie rurale, agrobusiness, gestion des filières agricoles, développement rural, commercialisation des produits agricoles et politiques agricoles.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Agro-économiste</li>
+                                <li>Gestionnaire de coopérative agricole</li>
+                                <li>Consultant en développement rural</li>
+                                <li>Responsable filière agricole</li>
+                                <li>Chargé de projet ONG</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/IMG_1695-scaled.webp" alt="Agronomie"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Agronomiques</span>
+                        <h3>Agronomie</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Science de l'amélioration des techniques agricoles : sciences du sol, physiologie végétale, phytotechnie, zootechnie, protection des cultures et économie rurale pour accroître durablement les productions. L'UATM-GASA prépare aux diplômes de Licence, Master et Ingénieur en Agronomie, au service de la souveraineté alimentaire du Bénin et de l'Afrique.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Ingénieur agronome</li>
+                                <li>Chercheur en agronomie</li>
+                                <li>Conseiller agricole</li>
+                                <li>Responsable de production agro-industrielle</li>
+                                <li>Chef de projet de développement rural</li>
+                                <li>Chargé de programme ONG et organisations internationales</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Agronomie générale, Sciences du sol, Physiologie végétale, Phytotechnie, Zootechnie, Protection des cultures, Économie rurale, Amélioration des plantes, Engrais et amendements</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Ferme d'application de production végétale de 250 hectares, bibliothèque, laboratoires, salles de TP</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/ter.webp" alt="Maraîchage et Cultures"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Agronomiques</span>
+                        <h3>Maraîchage et Cultures</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation aux techniques modernes de production horticole vivrière et ornementale : culture des légumes et des plantes ornementales, gestion des pépinières, irrigation, pratiques agroécologiques et techniques de commercialisation, au service de la sécurité alimentaire.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Maraîcher</li>
+                                <li>Pépiniériste</li>
+                                <li>Aménageur d'espaces verts</li>
+                                <li>Paysagiste</li>
+                                <li>Fleuriste</li>
+                                <li>Entrepreneur dans le secteur horticole</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Production horticole vivrière et ornementale, Gestion des pépinières, Irrigation, Agroécologie, Commercialisation des produits maraîchers, Biologie végétale, Engrais et amendements</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Ferme d'application de production végétale de 250 hectares, bibliothèque, laboratoires, salles de TP</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/SJ.webp" alt="Science Juridique"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Juridiques et Politiques</span>
+                        <h3>Science Juridique</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation permettant d'acquérir des connaissances générales en droit et la méthodologie propre aux juristes : étude de cas, commentaire d'arrêt, dissertation juridique. Socle complété par la sociologie politique, les relations internationales, les langues, l'économie et l'informatique. Accent particulier sur le droit du numérique et du commerce électronique.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Avocat</li>
+                                <li>Magistrat</li>
+                                <li>Juriste d'entreprise</li>
+                                <li>Notaire</li>
+                                <li>Consultant juridique</li>
+                                <li>Huissier de justice</li>
+                                <li>Spécialiste droit du numérique</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Introduction générale à l'Étude du Droit, Droit constitutionnel, Science politique, Relations internationales, Droit administratif, Droit du e-commerce (numérique), Droit des obligations, Droit de la famille, Droit commercial, Droit des sociétés, Droit du travail, Droit international public et privé, Finances publiques, Libertés publiques</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/CRI.webp" alt="Communication et Relations Internationales"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences Juridiques et Politiques</span>
+                        <h3>Communication et Relations Internationales</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Diplomatie, droit international, relations économiques internationales, négociations internationales, gestion des conflits, communication institutionnelle et diplomatie.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Diplomate</li>
+                                <li>Chargé de communication internationale</li>
+                                <li>Analyste politique</li>
+                                <li>Consultant ONG internationale</li>
+                                <li>Attaché d'ambassade</li>
+                                <li>Médiateur international</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/MCC.webp" alt="Marketing Communication et Commerce"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Marketing Communication et Commerce</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Double compétence en Commerce/marketing et Technologies de la communication digitale (internet, mobile) par l'apprentissage des savoir-faire stratégiques et opérationnels dans le e-commerce, le e-marketing et la communication digitale. Secteurs qui embauchent fortement avec évolution rapide vers des postes à responsabilités.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Responsable commercial</li>
+                                <li>Community Manager</li>
+                                <li>Chef de publicité digitale</li>
+                                <li>Responsable e-commerce</li>
+                                <li>Chargé de projet marketing digital</li>
+                                <li>Social media manager</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Gestion de projets, Veille économique et commerciale, Stratégies d'entreprise et de marque, Community management (réseaux sociaux), Réalisation de spots publicitaires, Marketing classique, E-commerce, Communication digitale</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Salle informatique 50+ PCs, Internet 24h/24</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/FCA.webp" alt="Finance Comptabilité et Audit"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Finance Comptabilité et Audit</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Technique comptable, comptabilité générale et analytique, audit financier, gestion fiscale, contrôle de gestion. Normes SYSCOHADA et IFRS. Reporting financier, gestion des risques, tableaux de bord.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Expert-comptable</li>
+                                <li>Auditeur financier</li>
+                                <li>Contrôleur de gestion</li>
+                                <li>Directeur financier</li>
+                                <li>Fiscaliste</li>
+                                <li>Commissaire aux comptes</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Comptabilité financière, Analyse des états financiers, Gestion budgétaire, Audit interne et externe, Contrôle de gestion, Fiscalité des entreprises, Normes comptables (SYSCOHADA, IFRS), Reporting financier, Trésorerie, Outils informatiques de gestion (ERP, logiciels comptables)</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/BFA.webp" alt="Banque Finance et Assurance"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Banque Finance et Assurance</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Économie bancaire, produits d'assurance, droit bancaire, gestion des risques financiers, analyse financière, marchés financiers et monétique.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Analyste financier</li>
+                                <li>Chargé de clientèle bancaire</li>
+                                <li>Gestionnaire de patrimoine</li>
+                                <li>Courtier en assurance</li>
+                                <li>Risk manager</li>
+                                <li>Agent de change</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/MRH.webp" alt="Management des Ressources Humaines"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Management des Ressources Humaines</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Recrutement de personnel, gestion de carrières, gestion de la paie, information et communication interne, gestion administrative du personnel (CNSS, etc.), droit social.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>DRH</li>
+                                <li>Responsable recrutement</li>
+                                <li>Chargé de formation</li>
+                                <li>Gestionnaire de paie</li>
+                                <li>Consultant RH</li>
+                                <li>Responsable relations sociales</li>
+                            </ul>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/TL.webp" alt="Transport et Logistique"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Transport et Logistique</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Pilotage des opérations de la chaîne logistique : approvisionnement, production, transport terrestre, maritime et aérien, distribution. Logistique internationale, douanes, gestion d'entrepôts, traçabilité, systèmes d'information logistique (TMS/WMS).</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Responsable logistique</li>
+                                <li>Supply chain manager</li>
+                                <li>Transitaire</li>
+                                <li>Gestionnaire de stocks</li>
+                                <li>Responsable transport</li>
+                                <li>Agent de transit</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Chaîne d'approvisionnement, Gestion des stocks, Transport international, Douanes et commerce extérieur, Planification des livraisons, Gestion d'entrepôts, Coûts logistiques, Réglementation du transport, Logistique verte</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/EGP.webp" alt="Entrepreneuriat et Gestion de Projets"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Entrepreneuriat et Gestion de Projets</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Répondre aux besoins des porteurs de projets de création/reprise d'entreprises, des accompagnateurs de créateurs/repreneurs et des gestionnaires de projets dans tous les secteurs (commerce, services, artisanat, industrie, agriculture, culture). Former des professionnels capables d'initier, concevoir, piloter, accompagner et évaluer des démarches projets.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Chef d'entreprise / Entrepreneur</li>
+                                <li>Chef de projet</li>
+                                <li>Conseiller en création/reprise d'entreprise</li>
+                                <li>Business developer</li>
+                                <li>Consultant en stratégie</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Marketing, Comptabilité générale et analytique, Gestion juridique et fiscale, Gestion financière, Droit du travail, Négociation commerciale, Business plan, Microsoft Project, Outils numériques de gestion</p>
+                            <p class="mat"><b>Mat&eacute;riel :</b> Salle informatique 50+ PCs avec logiciels de comptabilité et gestion de projet, Internet 24h/24</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/MD.webp" alt="Marketing Digital"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Marketing Digital</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Le marketing digital regroupe l'ensemble des techniques utilisées pour promouvoir une marque, un produit ou un service via les canaux numériques : attirer des prospects (articles, vidéos, infographies), convertir via des actions ciblées (publicité, e-mailing, landing pages), fidéliser les clients (newsletters, réseaux sociaux, CRM).</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Chef de projet digital</li>
+                                <li>Traffic Manager</li>
+                                <li>Rédacteur Web</li>
+                                <li>Designer UI</li>
+                                <li>Data Analyst</li>
+                                <li>Manager e-commerce</li>
+                                <li>Community manager</li>
+                                <li>Growth hacker</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> SEO/SEA, Réseaux sociaux, E-commerce, Content marketing, Data marketing, Stratégie digitale, Growth hacking, Publicité en ligne, Branding, Image de marque</p>
+                        </details>
+                    </div>
+                </article>
+                <article class="filiere">
+                    <div class="visuel"><img src="images/DSC00024-1-scaled.webp" alt="Techniques de Ventes et Négociations"></div>
+                    <div class="corps">
+                        <span class="ufr">Sciences de Gestion</span>
+                        <h3>Techniques de Ventes et Négociations</h3>
+                        <p class="badges"><span>Licence &amp; Master</span><span>3 ans (L) / 5 ans (M)</span></p>
+                        <p class="desc">Formation aux techniques de vente avancées, à la négociation commerciale et à la gestion de la relation client. Maîtrise de la prospection, du merchandising, de l'analyse des performances commerciales et de la stratégie commerciale.</p>
+                        <details>
+                            <summary>D&eacute;bouch&eacute;s</summary>
+                            <ul>
+                                <li>Attaché commercial</li>
+                                <li>Responsable des ventes</li>
+                                <li>Négociateur commercial</li>
+                                <li>Chef de secteur</li>
+                                <li>Responsable grands comptes</li>
+                                <li>Directeur commercial</li>
+                            </ul>
+                        </details>
+                        <details>
+                            <summary>Mati&egrave;res &amp; mat&eacute;riel</summary>
+                            <p class="mat"><b>Mati&egrave;res :</b> Techniques de vente, Négociation commerciale, Gestion de la relation client, Études de marché, Prospection, Merchandising, Comportement du consommateur, Analyse des performances commerciales, Distribution et logistique commerciale</p>
+                        </details>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="apropos" id="apropos">
+        <div class="conteneur">
+            <div class="apropos-grille">
+                <div class="apropos-visuel">
+                    <img class="apropos-photo" src="images/DSC00052-scaled.webp" alt="Étudiants de l'UATM-GASA Formation">
+                    <div class="badge-exp"><b>34</b>ans d'expérience</div>
+                </div>
+                <div class="apropos-texte">
+                    <p class="surtitre">Qui sommes-nous</p>
+                    <h2>La première et plus ancienne université privée du Bénin</h2>
+                    <p>Créée en 1992 par son président, le Dr Théophane AYI, elle comptait alors 60 étudiants et deux filières : l'Électronique et l'Informatique de Gestion.</p>
+                    <p>Aujourd'hui, l'université accueille plus de 3 000 étudiants inscrits dans 23 filières agréées par l'État, répartis sur cinq campus. Notre équipe pédagogique forme les meilleurs ingénieurs, entrepreneurs, comptables, agronomes et juristes ; l'excellent taux d'insertion de nos diplômés dans la vie professionnelle constitue notre plus grande fierté.</p>
+                    <p>L'encadrement est assuré par 213 professeurs, dont 36 internationaux, et l'université propose également des programmes de Doctorat.</p>
+
+                    <ul class="points">
+                        <li>Premiers aux examens nationaux et concours internationaux</li>
+                        <li>23 filières agréées par l'État béninois</li>
+                        <li>Fort taux d'insertion professionnelle des diplômés</li>
+                        <li>Bourses d'excellence jusqu'à 100% des frais</li>
+                    </ul>
+
+                    <a class="lien-plein" href="#histoire">Découvrir notre histoire →</a>
+
+                    <div class="fondateur">
+                        <img src="images/directeur.webp" alt="Dr Théophane AYI">
+                        <div>
+                            <strong>Dr Théophane AYI</strong>
+                            <span>Président-Fondateur</span>
+                            <p>Fondateur de l'UATM-GASA Formation en 1992</p>
+                            <q>Notre ambition est de former des hommes et des femmes compétents, capables de transformer positivement leur environnement et de s'imposer partout dans le monde.</q>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chiffres">
+                <div>
+                    <b>1992</b>
+                    <span>Année de création</span>
+                </div>
+                <div>
+                    <b>23</b>
+                    <span>Filières agréées</span>
+                </div>
+                <div>
+                    <b>3000+</b>
+                    <span>Étudiants inscrits</span>
+                </div>
+                <div>
+                    <b>5</b>
+                    <span>Campus au Bénin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="histoire">
+        <div class="conteneur">
+            <div class="titre-section">
+                <p class="surtitre">Notre parcours</p>
+                <h2>30 ans au service de l'excellence</h2>
+                <span class="trait"></span>
+                <p>De GASA-FORMATION / SUPELEC BÉNIN à l'Université Africaine de Technologie et de Management, un parcours de croissance continue.</p>
+            </div>
+
+            <div class="histoire-liste">
+                <div class="etape">
+                    <div class="annee">1992</div>
+                    <div>
+                        <h3>Création de GASA-FORMATION / SUPELEC BÉNIN</h3>
+                        <p>Fondation par le Dr Théophane AYI avec 60 étudiants et 2 filières : Électronique et Informatique de Gestion. Vocation : former des techniciens supérieurs BAC+2 (BTS).</p>
+                    </div>
+                </div>
+                <div class="etape">
+                    <div class="annee">1997</div>
+                    <div>
+                        <h3>Reconnaissance officielle</h3>
+                        <p>Arrêté ministériel N°009/MENRS/CAB/DC/DAPS/SP du 23 janvier 1997 officialisant l'établissement.</p>
+                    </div>
+                </div>
+                <div class="etape">
+                    <div class="annee">2006</div>
+                    <div>
+                        <h3>Mutation en Université (UATM)</h3>
+                        <p>Le 1er février 2006, GASA-FORMATION devient l'Université Africaine de Technologie et de Management par Arrêté Ministériel N°003/MESRS/CAB/DC/SMG/DPP/DESUP/SP.</p>
+                    </div>
+                </div>
+                <div class="etape">
+                    <div class="annee">2015</div>
+                    <div>
+                        <h3>Prix d'excellence et distinctions</h3>
+                        <p>GAB School Award 2015 et premier de la CEDEAO à la compétition HUAWEI ICT (track « Network »).</p>
+                    </div>
+                </div>
+                <div class="etape">
+                    <div class="annee">Aujourd'hui</div>
+                    <div>
+                        <h3>30+ ans d'excellence</h3>
+                        <p>Plus de 3000 étudiants, 23 filières agréées, 213 professeurs, des campus à Gbégamey, Calavi, Agla, Akpakpa et Porto-Novo. Programmes de Doctorat disponibles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision">
+        <div class="conteneur">
+            <div class="titre-section">
+                <p class="surtitre">Ce qui nous guide</p>
+                <h2>Vision, Mission &amp; Objectifs</h2>
+                <span class="trait"></span>
+                <p>Les piliers de l'UATM-GASA</p>
+            </div>
+
+            <div class="piliers">
+                <div class="pilier">
+                    <span class="num">01</span>
+                    <h3>Notre Vision</h3>
+                    <p>Apporter à la société moderne, des talents instruits, compétents et consciencieux pour qu'ils puissent relever brillamment les défis d'un développement durable.</p>
+                </div>
+                <div class="pilier">
+                    <span class="num">02</span>
+                    <h3>Notre Mission</h3>
+                    <p>Offrir un système d'enseignement supérieur attractif, plus compétitif et audacieux, en développant la créativité par le savoir et la technologie au service du développement socio-économique du Bénin et de l'Afrique.</p>
+                </div>
+                <div class="pilier">
+                    <span class="num">03</span>
+                    <h3>Nos Objectifs</h3>
+                    <p>Former des diplômés avec des méthodes de recours aux nouvelles technologies. Contribuer à la valorisation du capital humain. Orienter des profils humains compétents vers une reconnaissance au niveau de la société et du marché de l'emploi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partenaires">
+        <div class="conteneur">
+            <div class="titre-section">
+                <p class="surtitre">Ils nous font confiance</p>
+                <h2>Nos Partenaires</h2>
+                <span class="trait"></span>
+            </div>
+
+            <div class="partenaires-grille">
+                <div class="partenaire">
+                    <img src="images/huawe.webp" alt="Huawei">
+                </div>
+                <div class="partenaire">
+                    <img src="images/unstim.webp" alt="UNSTIM">
+                </div>
+                <div class="partenaire">
+                    <img src="images/up.webp" alt="Université de Parakou">
+                </div>
+                <div class="partenaire">
+                    <img src="images/moulin.webp" alt="Moulin">
+                </div>
+                <div class="partenaire">
+                    <img src="images/upvd.webp" alt="UPVD">
+                </div>
+                <div class="partenaire">
+                    <img src="images/grenoble.webp" alt="Grenoble">
+                </div>
+                <div class="partenaire">
+                    <img src="images/cames.webp" alt="CAMES">
+                </div>
+                <div class="partenaire">
+                    <img src="images/addpf.webp" alt="ADDPF">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="conteneur">
+            <div class="titre-section">
+                <h2>Contact</h2>
+                <p>Service d'orientation ouvert du lundi au samedi, de 8h à 17h.</p>
+            </div>
+
+            <div class="contact-grille">
+                <div class="contact-info">
+                    <h3>Nos coordonnées</h3>
+                    <div class="ligne">
+                        <b>Adresse</b>
+                        <span>04 BP 1361 Cotonou — 2ème rue à gauche après le CEG Gbégamey, Cadjehoun, Cotonou, Bénin</span>
+                    </div>
+                    <div class="ligne">
+                        <b>Téléphone</b>
+                        <a href="tel:+2290165787721">(+229) 01 65 78 77 21</a>
+                    </div>
+                    <div class="ligne">
+                        <b>Email</b>
+                        <a href="mailto:info@uatm-gasa.com">info@uatm-gasa.com</a>
+                    </div>
+                    <div class="ligne">
+                        <b>Site web</b>
+                        <a href="https://uatm-gasa.com" target="_blank" rel="noopener">www.uatm-gasa.com</a>
+                    </div>
+                    <div class="ligne">
+                        <b>Campus</b>
+                        <span>Cotonou (siège), Agla, Akpakpa, Calavi, Porto-Novo</span>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Formulaire de contact</h3>
+                    <form action="#" method="post" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Demande envoyée !';">
+                        <label for="nom">Nom et prénom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom complet">
+
+                        <label for="email">Adresse email</label>
+                        <input type="email" id="email" name="email" placeholder="exemple@email.com">
+
+                        <label for="filiere">Filière souhaitée</label>
+                        <input type="text" id="filiere" name="filiere" placeholder="Ex. : Systèmes Informatiques et Logiciels">
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Votre message..."></textarea>
+
+                        <button type="submit">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="conteneur pied">
+            <a class="logo" href="#accueil">
+                <img src="images/logo.webp" alt="Logo UATM-GASA Formation" style="height: 40px;">
+                <span>UATM<i>-GASA</i> Formation</span>
+            </a>
+            <p>
+                04 BP 1361 Cotonou, Bénin · <a href="tel:+2290165787721">(+229) 01 65 78 77 21</a> · <a href="mailto:info@uatm-gasa.com">info@uatm-gasa.com</a><br>
+                © 2026 UATM-GASA Formation — Tous droits réservés
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
