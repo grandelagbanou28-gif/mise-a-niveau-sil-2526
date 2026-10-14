@@ -766,6 +766,137 @@
                 min-width: 0;
             }
         }
+
+        .filtres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 4px 0 28px;
+        }
+
+        .filtres label {
+            font-size: 13.5px;
+            color: #4b5563;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 30px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filtres label b {
+            font-weight: 700;
+            color: #9ca3af;
+            margin-left: 3px;
+        }
+
+        .filtres label:hover {
+            border-color: #ce453f;
+            color: #ce453f;
+        }
+
+        input[name="ufr"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            margin: -1px;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        #ufr-toutes:checked ~ .filtres label[for="ufr-toutes"],
+        #ufr-st:checked ~ .filtres label[for="ufr-st"],
+        #ufr-agro:checked ~ .filtres label[for="ufr-agro"],
+        #ufr-jur:checked ~ .filtres label[for="ufr-jur"],
+        #ufr-gestion:checked ~ .filtres label[for="ufr-gestion"] {
+            background: #ce453f;
+            border-color: #ce453f;
+            color: #ffffff;
+        }
+
+        #ufr-toutes:checked ~ .filtres label[for="ufr-toutes"] b,
+        #ufr-st:checked ~ .filtres label[for="ufr-st"] b,
+        #ufr-agro:checked ~ .filtres label[for="ufr-agro"] b,
+        #ufr-jur:checked ~ .filtres label[for="ufr-jur"] b,
+        #ufr-gestion:checked ~ .filtres label[for="ufr-gestion"] b {
+            color: #ffffff;
+        }
+
+        #ufr-st:checked ~ .grille .filiere:not([data-ufr="st"]),
+        #ufr-agro:checked ~ .grille .filiere:not([data-ufr="agro"]),
+        #ufr-jur:checked ~ .grille .filiere:not([data-ufr="jur"]),
+        #ufr-gestion:checked ~ .grille .filiere:not([data-ufr="gestion"]) {
+            display: none;
+        }
+
+        #ufr-toutes:focus-visible ~ .filtres label[for="ufr-toutes"],
+        #ufr-st:focus-visible ~ .filtres label[for="ufr-st"],
+        #ufr-agro:focus-visible ~ .filtres label[for="ufr-agro"],
+        #ufr-jur:focus-visible ~ .filtres label[for="ufr-jur"],
+        #ufr-gestion:focus-visible ~ .filtres label[for="ufr-gestion"] {
+            outline: 2px solid #212330;
+            outline-offset: 2px;
+        }
+
+        .nav-check {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .burger {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            color: #212330;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+            .burger {
+                display: flex;
+            }
+
+            .barre {
+                flex-wrap: nowrap;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: #ffffff;
+                border-bottom: 1px solid #e5e7eb;
+                box-shadow: 0 10px 18px rgba(33, 35, 48, 0.12);
+                padding: 6px 0;
+            }
+
+            .nav-check:checked ~ nav {
+                display: flex;
+            }
+
+            nav a {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+
+            nav a.bouton {
+                margin: 8px 24px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -776,6 +907,8 @@
                 <img src="images/logo.webp" alt="Logo UATM-GASA Formation">
                 <span>UATM<i>-GASA</i> Formation</span>
             </a>
+            <input type="checkbox" id="nav-check" class="nav-check">
+            <label for="nav-check" class="burger" title="Menu">&#9776;</label>
             <nav>
                 <a href="#accueil">Accueil</a>
                 <a href="#formations">Formations</a>
@@ -801,12 +934,25 @@
         <div class="conteneur">
             <div class="titre-section">
                 <h2>Nos formations</h2>
-                <p>Quatre unités de formation et de recherche, 23 filières agréées par l'État béninois, de la licence au master. Ouvrez le détail de chaque fiche pour voir ses débouchés, ses matières et son matériel.</p>
+                <p>Quatre unités de formation et de recherche, 23 filières agréées par l'État béninois, de la licence au master. Ouvrez le détail de chaque fiche pour voir ses débouchés, ses matières et son matériel. Utilisez les filtres ci-dessous pour n'afficher que votre unit&eacute; de recherche</p>
+            </div>
+
+            <input type="radio" name="ufr" id="ufr-toutes" checked>
+            <input type="radio" name="ufr" id="ufr-st">
+            <input type="radio" name="ufr" id="ufr-agro">
+            <input type="radio" name="ufr" id="ufr-jur">
+            <input type="radio" name="ufr" id="ufr-gestion">
+            <div class="filtres">
+                <label for="ufr-toutes">Toutes <b>23</b></label>
+                <label for="ufr-st">Sciences et Techniques <b>8</b></label>
+                <label for="ufr-agro">Sciences Agronomiques <b>5</b></label>
+                <label for="ufr-jur">Sciences Juridiques <b>2</b></label>
+                <label for="ufr-gestion">Sciences de Gestion <b>8</b></label>
             </div>
 
             <div class="grille">
-                <article class="filiere">
-                    <div class="visuel"><img src="images/rit.webp" alt="Réseaux Informatiques et Télécommunications"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/rit.webp" alt="Réseaux Informatiques et Télécommunications"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Réseaux Informatiques et Télécommunications</h3>
@@ -830,8 +976,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/SIL.webp" alt="Systèmes Informatiques et Logiciels"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/SIL.webp" alt="Systèmes Informatiques et Logiciels"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Systèmes Informatiques et Logiciels</h3>
@@ -855,8 +1001,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/si.webp" alt="Systèmes Industriels"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/si.webp" alt="Systèmes Industriels"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Systèmes Industriels</h3>
@@ -880,8 +1026,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/DSC00090-scaled.webp" alt="Biotechnologie"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/DSC00090-scaled.webp" alt="Biotechnologie"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Biotechnologie</h3>
@@ -905,8 +1051,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/GEER.webp" alt="Génie Électrique et Énergie Renouvelable"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/GEER.webp" alt="Génie Électrique et Énergie Renouvelable"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Génie Électrique et Énergie Renouvelable</h3>
@@ -928,8 +1074,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/SEI.webp" alt="Sécurité Informatique"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/SEI.webp" alt="Sécurité Informatique"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Sécurité Informatique</h3>
@@ -952,8 +1098,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/IIM.webp" alt="Informatique Industrielle et Maintenance"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/IIM.webp" alt="Informatique Industrielle et Maintenance"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Informatique Industrielle et Maintenance</h3>
@@ -976,8 +1122,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/FC.webp" alt="Froid et Climatisation"></div>
+                <article class="filiere" data-ufr="st">
+                    <div class="visuel"><img decoding="async" src="images/FC.webp" alt="Froid et Climatisation"></div>
                     <div class="corps">
                         <span class="ufr">Sciences et Techniques</span>
                         <h3>Froid et Climatisation</h3>
@@ -999,8 +1145,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/PA.webp" alt="Production Animale"></div>
+                <article class="filiere" data-ufr="agro">
+                    <div class="visuel"><img decoding="async" src="images/PA.webp" alt="Production Animale"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Agronomiques</span>
                         <h3>Production Animale</h3>
@@ -1023,8 +1169,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/PV.webp" alt="Production Végétale"></div>
+                <article class="filiere" data-ufr="agro">
+                    <div class="visuel"><img decoding="async" src="images/PV.webp" alt="Production Végétale"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Agronomiques</span>
                         <h3>Production Végétale</h3>
@@ -1047,8 +1193,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/AE.webp" alt="Agro-Économie"></div>
+                <article class="filiere" data-ufr="agro">
+                    <div class="visuel"><img decoding="async" src="images/AE.webp" alt="Agro-Économie"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Agronomiques</span>
                         <h3>Agro-Économie</h3>
@@ -1066,8 +1212,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/IMG_1695-scaled.webp" alt="Agronomie"></div>
+                <article class="filiere" data-ufr="agro">
+                    <div class="visuel"><img decoding="async" src="images/IMG_1695-scaled.webp" alt="Agronomie"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Agronomiques</span>
                         <h3>Agronomie</h3>
@@ -1091,8 +1237,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/ter.webp" alt="Maraîchage et Cultures"></div>
+                <article class="filiere" data-ufr="agro">
+                    <div class="visuel"><img decoding="async" src="images/ter.webp" alt="Maraîchage et Cultures"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Agronomiques</span>
                         <h3>Maraîchage et Cultures</h3>
@@ -1116,8 +1262,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/SJ.webp" alt="Science Juridique"></div>
+                <article class="filiere" data-ufr="jur">
+                    <div class="visuel"><img decoding="async" src="images/SJ.webp" alt="Science Juridique"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Juridiques et Politiques</span>
                         <h3>Science Juridique</h3>
@@ -1141,8 +1287,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/CRI.webp" alt="Communication et Relations Internationales"></div>
+                <article class="filiere" data-ufr="jur">
+                    <div class="visuel"><img decoding="async" src="images/CRI.webp" alt="Communication et Relations Internationales"></div>
                     <div class="corps">
                         <span class="ufr">Sciences Juridiques et Politiques</span>
                         <h3>Communication et Relations Internationales</h3>
@@ -1161,8 +1307,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/MCC.webp" alt="Marketing Communication et Commerce"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/MCC.webp" alt="Marketing Communication et Commerce"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Marketing Communication et Commerce</h3>
@@ -1186,8 +1332,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/FCA.webp" alt="Finance Comptabilité et Audit"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/FCA.webp" alt="Finance Comptabilité et Audit"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Finance Comptabilité et Audit</h3>
@@ -1210,8 +1356,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/BFA.webp" alt="Banque Finance et Assurance"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/BFA.webp" alt="Banque Finance et Assurance"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Banque Finance et Assurance</h3>
@@ -1230,8 +1376,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/MRH.webp" alt="Management des Ressources Humaines"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/MRH.webp" alt="Management des Ressources Humaines"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Management des Ressources Humaines</h3>
@@ -1250,8 +1396,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/TL.webp" alt="Transport et Logistique"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/TL.webp" alt="Transport et Logistique"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Transport et Logistique</h3>
@@ -1274,8 +1420,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/EGP.webp" alt="Entrepreneuriat et Gestion de Projets"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/EGP.webp" alt="Entrepreneuriat et Gestion de Projets"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Entrepreneuriat et Gestion de Projets</h3>
@@ -1298,8 +1444,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/MD.webp" alt="Marketing Digital"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/MD.webp" alt="Marketing Digital"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Marketing Digital</h3>
@@ -1324,8 +1470,8 @@
                         </details>
                     </div>
                 </article>
-                <article class="filiere">
-                    <div class="visuel"><img src="images/DSC00024-1-scaled.webp" alt="Techniques de Ventes et Négociations"></div>
+                <article class="filiere" data-ufr="gestion">
+                    <div class="visuel"><img decoding="async" src="images/DSC00024-1-scaled.webp" alt="Techniques de Ventes et Négociations"></div>
                     <div class="corps">
                         <span class="ufr">Sciences de Gestion</span>
                         <h3>Techniques de Ventes et Négociations</h3>
@@ -1356,7 +1502,7 @@
         <div class="conteneur">
             <div class="apropos-grille">
                 <div class="apropos-visuel">
-                    <img class="apropos-photo" src="images/DSC00052-scaled.webp" alt="Étudiants de l'UATM-GASA Formation">
+                    <img class="apropos-photo" decoding="async" src="images/DSC00052-scaled.webp" alt="Étudiants de l'UATM-GASA Formation">
                     <div class="badge-exp"><b>34</b>ans d'expérience</div>
                 </div>
                 <div class="apropos-texte">
@@ -1376,7 +1522,7 @@
                     <a class="lien-plein" href="#histoire">Découvrir notre histoire →</a>
 
                     <div class="fondateur">
-                        <img src="images/directeur.webp" alt="Dr Théophane AYI">
+                        <img decoding="async" src="images/directeur.webp" alt="Dr Théophane AYI">
                         <div>
                             <strong>Dr Théophane AYI</strong>
                             <span>Président-Fondateur</span>
@@ -1496,28 +1642,28 @@
 
             <div class="partenaires-grille">
                 <div class="partenaire">
-                    <img src="images/huawe.webp" alt="Huawei">
+                    <img decoding="async" src="images/huawe.webp" alt="Huawei">
                 </div>
                 <div class="partenaire">
-                    <img src="images/unstim.webp" alt="UNSTIM">
+                    <img decoding="async" src="images/unstim.webp" alt="UNSTIM">
                 </div>
                 <div class="partenaire">
-                    <img src="images/up.webp" alt="Université de Parakou">
+                    <img decoding="async" src="images/up.webp" alt="Université de Parakou">
                 </div>
                 <div class="partenaire">
-                    <img src="images/moulin.webp" alt="Moulin">
+                    <img decoding="async" src="images/moulin.webp" alt="Moulin">
                 </div>
                 <div class="partenaire">
-                    <img src="images/upvd.webp" alt="UPVD">
+                    <img decoding="async" src="images/upvd.webp" alt="UPVD">
                 </div>
                 <div class="partenaire">
-                    <img src="images/grenoble.webp" alt="Grenoble">
+                    <img decoding="async" src="images/grenoble.webp" alt="Grenoble">
                 </div>
                 <div class="partenaire">
-                    <img src="images/cames.webp" alt="CAMES">
+                    <img decoding="async" src="images/cames.webp" alt="CAMES">
                 </div>
                 <div class="partenaire">
-                    <img src="images/addpf.webp" alt="ADDPF">
+                    <img decoding="async" src="images/addpf.webp" alt="ADDPF">
                 </div>
             </div>
         </div>
@@ -1580,7 +1726,7 @@
     <footer>
         <div class="conteneur pied">
             <a class="logo" href="#accueil">
-                <img src="images/logo.webp" alt="Logo UATM-GASA Formation" style="height: 40px;">
+                <img decoding="async" src="images/logo.webp" alt="Logo UATM-GASA Formation" style="height: 40px;">
                 <span>UATM<i>-GASA</i> Formation</span>
             </a>
             <p>
