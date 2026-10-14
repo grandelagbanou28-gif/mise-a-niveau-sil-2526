@@ -2,7 +2,7 @@
 
 ![Site UATM-GASA Formation — accueil](captures/accueil.png)
 
-Projet de mise à niveau du semestre 1 — **Licence 3 SIL**, année 2025-2026. Il rassemble les travaux pratiques en **C++** (TP1 à TP13), une application **VB.NET** de gestion des notes et un **site vitrine** complet de l'université UATM-GASA Formation (Cotonou, Bénin).
+Projet de mise à niveau du semestre 1 — **Licence 3 SIL**, année universitaire 2026-2027. Il rassemble les travaux pratiques en **C++** (TP1 à TP13), une application **VB.NET** de gestion des notes et un **site vitrine** complet de l'université UATM-GASA Formation (Cotonou, Bénin).
 
 ## Captures
 
@@ -63,4 +63,4 @@ Ouvrir simplement `Activite3_WEB/index.html` dans un navigateur : le site foncti
 
 ## Réalisé par
 
-GRANDEL et AGBANOU — Licence 3 SIL, année universitaire 2025-2026.
+GRANDEL et AGBANOU — Licence 3 SIL, année universitaire 2026-2027.
