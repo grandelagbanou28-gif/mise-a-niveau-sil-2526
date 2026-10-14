@@ -25,8 +25,13 @@ Retrait automatique du **fond papier** (jaunissement, grain, taches) et des **ta
 
 ```bash
 python generer_scan_test.py   # 1. créer l'image de test
-python nettoyage.py           # 2. nettoyer (ou : python nettoyage.py votre_scan.png)
+python nettoyage.py           # 2. nettoyer : le programme DEMANDE le chemin
 ```
+
+Au lancement, le programme demande le chemin de l'image à nettoyer :
+- **Entrée** directe → utilise `scan_test.png` (l'image de test)
+- Un **chemin** vers votre propre scan (ex. `C:\scans\examen.png`)
+- Si le fichier n'existe pas → message d'erreur et **redemande** (boucle de validation)
 
 Dépendances : `opencv-python`, `numpy`.
 

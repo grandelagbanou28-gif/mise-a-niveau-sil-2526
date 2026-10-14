@@ -146,9 +146,21 @@ def nettoyer(chemin_entree, dossier_sortie="resultats"):
 
 
 if __name__ == "__main__":
-    # Point d'entree : nom du fichier en argument, sinon le scan de test genere au prealable
-    if len(sys.argv) > 1:
-        chemin = sys.argv[1]
-    else:
-        chemin = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scan_test.png")
+    # Saisie interactive du chemin (comme les TP C++ : on demande tant que la saisie est invalide)
+    dossier = os.path.dirname(os.path.abspath(__file__))
+    defaut = os.path.join(dossier, "scan_test.png")
+
+    while True:
+        saisie = input("Chemin de l'image a nettoyer (Entree = scan_test.png) : ").strip().strip('"').strip('\ufeff')
+        if saisie == "":
+            if os.path.isfile(defaut):
+                chemin = defaut
+                break
+            print("Aucune image de test. Lancez d'abord generer_scan_test.py ou donnez un chemin.")
+            continue
+        if os.path.isfile(saisie):
+            chemin = saisie
+            break
+        print("Fichier introuvable : " + saisie + " — reessayez.")
+
     nettoyer(chemin)
