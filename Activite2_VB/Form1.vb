@@ -24,6 +24,7 @@ Public Class Form1
     Private liste As New List(Of Etudiant)()
     Private listeAffichee As New List(Of Etudiant)()
     Private enRafraichissement As Boolean = False
+    Private conteneur As New Panel()
 
     Private ep As New ErrorProvider()
 
@@ -53,8 +54,8 @@ Public Class Form1
 
     Public Sub New()
         Text = "Gestion des notes des etudiants - UATM/GASA FORMATION"
-        Size = New Size(1000, 780)
-        MinimumSize = New Size(1000, 780)
+        Size = New Size(1000, 790)
+        MinimumSize = New Size(1000, 790)
         StartPosition = FormStartPosition.CenterScreen
         BackColor = Fond
         Font = New Font("Segoe UI", 9.5F)
@@ -86,8 +87,12 @@ Public Class Form1
         bandeau.Controls.Add(filet)
         Controls.Add(bandeau)
 
+        conteneur.Size = New Size(944, 642)
+        conteneur.BackColor = Fond
+        Controls.Add(conteneur)
+
         Dim carte As New Panel()
-        carte.Location = New Point(20, 78)
+        carte.Location = New Point(0, 0)
         carte.Size = New Size(944, 128)
         carte.BackColor = Color.White
         carte.BorderStyle = BorderStyle.FixedSingle
@@ -115,43 +120,43 @@ Public Class Form1
         carte.Controls.Add(btnAjouter)
         carte.Controls.Add(btnModifier)
         carte.Controls.Add(btnSupprimer)
-        Controls.Add(carte)
+        conteneur.Controls.Add(carte)
 
-        StyleBouton(btnMerite, "Classer par ordre de merite", 20, 220, 210, BleuNuit, Color.White, BleuNuit, BleuNuit)
-        StyleBouton(btnBulletin, "Bulletin (.txt)", 240, 220, 130, Color.White, BleuNuit, BleuNuit, GrisClair)
-        StyleBouton(btnEnregistrer, "Enregistrer", 380, 220, 105, Color.White, BleuNuit, Bordure, GrisClair)
-        StyleBouton(btnCharger, "Charger", 495, 220, 90, Color.White, BleuNuit, Bordure, GrisClair)
-        StyleBouton(btnQuitter, "Quitter", 842, 220, 122, Color.White, Rouge, Rouge, SelectFond)
-        Controls.Add(btnMerite)
-        Controls.Add(btnBulletin)
-        Controls.Add(btnEnregistrer)
-        Controls.Add(btnCharger)
-        Controls.Add(btnQuitter)
+        StyleBouton(btnMerite, "Classer par ordre de merite", 0, 142, 210, BleuNuit, Color.White, BleuNuit, BleuNuit)
+        StyleBouton(btnBulletin, "Bulletin (.txt)", 220, 142, 130, Color.White, BleuNuit, BleuNuit, GrisClair)
+        StyleBouton(btnEnregistrer, "Enregistrer", 360, 142, 105, Color.White, BleuNuit, Bordure, GrisClair)
+        StyleBouton(btnCharger, "Charger", 475, 142, 90, Color.White, BleuNuit, Bordure, GrisClair)
+        StyleBouton(btnQuitter, "Quitter", 822, 142, 122, Color.White, Rouge, Rouge, SelectFond)
+        conteneur.Controls.Add(btnMerite)
+        conteneur.Controls.Add(btnBulletin)
+        conteneur.Controls.Add(btnEnregistrer)
+        conteneur.Controls.Add(btnCharger)
+        conteneur.Controls.Add(btnQuitter)
 
-        txtRecherche.Location = New Point(622, 223)
+        txtRecherche.Location = New Point(602, 145)
         txtRecherche.Size = New Size(200, 30)
         txtRecherche.Text = TexteRecherche
         txtRecherche.ForeColor = Gris
-        Controls.Add(txtRecherche)
+        conteneur.Controls.Add(txtRecherche)
 
-        Controls.Add(CreerCarteStat(20, "Effectif", Rouge, lblEffectif))
-        Controls.Add(CreerCarteStat(261, "Moyenne de la classe", BleuNuit, lblMoyenne))
-        Controls.Add(CreerCarteStat(502, "Meilleure moyenne", Beige, lblMeilleure))
-        Controls.Add(CreerCarteStat(743, "Taux de reussite", BleuNuit, lblTaux))
+        conteneur.Controls.Add(CreerCarteStat(0, "Effectif", Rouge, lblEffectif))
+        conteneur.Controls.Add(CreerCarteStat(241, "Moyenne de la classe", BleuNuit, lblMoyenne))
+        conteneur.Controls.Add(CreerCarteStat(482, "Meilleure moyenne", Beige, lblMeilleure))
+        conteneur.Controls.Add(CreerCarteStat(723, "Taux de reussite", BleuNuit, lblTaux))
 
-        dgv.Location = New Point(20, 346)
+        dgv.Location = New Point(0, 268)
         dgv.Size = New Size(944, 252)
         ConfigurerGrille()
-        Controls.Add(dgv)
+        conteneur.Controls.Add(dgv)
 
         Dim etiquetteBulletin As New Label()
         etiquetteBulletin.Text = "Bulletin de l'etudiant selectionne  (le bouton Bulletin l'exporte en fichier .txt)"
         etiquetteBulletin.ForeColor = Gris
-        etiquetteBulletin.Location = New Point(20, 608)
+        etiquetteBulletin.Location = New Point(0, 530)
         etiquetteBulletin.AutoSize = True
-        Controls.Add(etiquetteBulletin)
+        conteneur.Controls.Add(etiquetteBulletin)
 
-        txtBulletin.Location = New Point(20, 628)
+        txtBulletin.Location = New Point(0, 550)
         txtBulletin.Size = New Size(944, 88)
         txtBulletin.Multiline = True
         txtBulletin.ReadOnly = True
@@ -159,7 +164,7 @@ Public Class Form1
         txtBulletin.WordWrap = False
         txtBulletin.BackColor = Color.White
         txtBulletin.Font = New Font("Consolas", 9.5F)
-        Controls.Add(txtBulletin)
+        conteneur.Controls.Add(txtBulletin)
 
         Dim barreStatut As New Panel()
         barreStatut.Dock = DockStyle.Bottom
@@ -185,6 +190,7 @@ Public Class Form1
         listeAffichee = New List(Of Etudiant)(liste)
         RafraichirGrille()
         lblTemps.Text = DateTime.Now.ToString("HH:mm")
+        Redimensionnement(Me, EventArgs.Empty)
     End Sub
 
     Private Function Etiquette(texte As String, x As Integer, y As Integer) As Label
@@ -218,7 +224,7 @@ Public Class Form1
 
     Private Function CreerCarteStat(x As Integer, titre As String, accent As Color, ByRef valeur As Label) As Panel
         Dim p As New Panel()
-        p.Location = New Point(x, 266)
+        p.Location = New Point(x, 188)
         p.Size = New Size(229, 64)
         p.BackColor = Color.White
         p.BorderStyle = BorderStyle.FixedSingle
@@ -636,4 +642,15 @@ Public Class Form1
             If reponse <> DialogResult.Yes Then e.Cancel = True
         End If
     End Sub
+    Private Sub Redimensionnement(sender As Object, e As EventArgs) Handles MyBase.Resize
+        If conteneur Is Nothing Then Return
+        Dim x As Integer = (ClientSize.Width - conteneur.Width) \ 2
+        If x < 0 Then x = 0
+        Dim placeHaute As Integer = 62
+        Dim placeBasse As Integer = ClientSize.Height - 28
+        Dim y As Integer = placeHaute + (placeBasse - placeHaute - conteneur.Height) \ 2
+        If y < placeHaute Then y = placeHaute
+        conteneur.Location = New Point(x, y)
+    End Sub
+
 End Class
