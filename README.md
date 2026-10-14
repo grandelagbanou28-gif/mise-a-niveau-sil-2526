@@ -6,9 +6,17 @@ Projet de mise à niveau du semestre 1 — **Licence 3 SIL**, année universitai
 
 ## Captures
 
+### Site web
+
 | Fiches de formations | À propos |
 |---|---|
 | ![Formations](captures/formations.png) | ![À propos](captures/apropos.png) |
+
+### Programmes
+
+| Sorties des TP (C++) | Application VB.NET |
+|---|---|
+| ![Sorties des TP](captures/tp_console.png) | ![Application VB.NET](captures/vb_form.png) |
 
 ## Contenu du dépôt
 
@@ -18,7 +26,7 @@ Projet de mise à niveau du semestre 1 — **Licence 3 SIL**, année universitai
 | `Activite2_VB/` | Application Windows Forms **VB.NET** (.NET 8) : gestion des notes, classement au mérite avec rang, mentions par matière, édition de bulletins |
 | `Activite3_WEB/` | Site vitrine statique en HTML/CSS : 23 filières agréées avec description, durée, matières et débouchés, section à propos (histoire depuis 1992, vision et mission), 8 partenaires, contact réel et formulaire — **100 % hors-ligne**, aucune ressource externe |
 | `Executables/` | 18 exécutables Windows précompilés (static), prêts à graver sur le CD de remise |
-| `captures/` | Captures d'écran du site utilisées dans ce README |
+| `captures/` | Captures d'écran du site et des programmes utilisées dans ce README |
 
 ## Compilation et exécution
 
