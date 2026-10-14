@@ -690,6 +690,21 @@
             background: #b83a35;
         }
 
+        .contact-form .retour {
+            display: block;
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .contact-form .retour.ok {
+            color: #1f7a3d;
+        }
+
+        .contact-form .retour.erreur {
+            color: #ce453f;
+        }
+
         footer {
             background: #212330;
             color: #b9bcc8;
@@ -1703,20 +1718,21 @@
 
                 <div class="contact-form">
                     <h3>Formulaire de contact</h3>
-                    <form action="#" method="post" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Demande envoyée !';">
+                    <form id="form-contact" novalidate>
                         <label for="nom">Nom et prénom</label>
-                        <input type="text" id="nom" name="nom" placeholder="Votre nom complet">
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom complet" required>
 
                         <label for="email">Adresse email</label>
-                        <input type="email" id="email" name="email" placeholder="exemple@email.com">
+                        <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
 
                         <label for="filiere">Filière souhaitée</label>
                         <input type="text" id="filiere" name="filiere" placeholder="Ex. : Systèmes Informatiques et Logiciels">
 
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Votre message..."></textarea>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
 
-                        <button type="submit">Envoyer</button>
+                        <button type="submit">Envoyer le message</button>
+                        <span class="retour" id="retour-form" role="status" aria-live="polite"></span>
                     </form>
                 </div>
             </div>
@@ -1735,6 +1751,49 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            var form = document.getElementById('form-contact');
+            var retour = document.getElementById('retour-form');
+
+            function afficher(texte, ok) {
+                retour.textContent = texte;
+                retour.className = 'retour ' + (ok ? 'ok' : 'erreur');
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                var nom = form.nom.value.trim();
+                var email = form.email.value.trim();
+                var filiere = form.filiere.value.trim();
+                var message = form.message.value.trim();
+
+                if (!nom || !email || !message) {
+                    afficher('Veuillez remplir votre nom, votre email et votre message.', false);
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    afficher('L\'adresse email saisie n\'est pas valide.', false);
+                    return;
+                }
+
+                var corps = 'Nom et prénom : ' + nom + '\n'
+                          + 'Email : ' + email + '\n'
+                          + 'Filière souhaitée : ' + (filiere || '(non précisée)') + '\n\n'
+                          + message;
+
+                var lien = 'mailto:info@uatm-gasa.com'
+                         + '?subject=' + encodeURIComponent('Demande d\'information — ' + nom)
+                         + '&body=' + encodeURIComponent(corps);
+
+                window.location.href = lien;
+
+                afficher('Votre messagerie s\'ouvre avec le message pré-rempli : cliquez sur « Envoyer » pour le transmettre à l\'université. En cas de problème, écrivez-nous directement à info@uatm-gasa.com.', true);
+            });
+        })();
+    </script>
 
 </body>
 </html>
