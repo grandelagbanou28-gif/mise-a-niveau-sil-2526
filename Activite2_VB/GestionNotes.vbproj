@@ -6,6 +6,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>GestionNotes</RootNamespace>
     <StartupObject>GestionNotes.Program</StartupObject>
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <AssemblyTitle>GestionNotes</AssemblyTitle>
+    <Product>GestionNotes - UATM/GASA Formation</Product>
+    <Description>Application de gestion des notes des etudiants</Description>
   </PropertyGroup>
 
 </Project>

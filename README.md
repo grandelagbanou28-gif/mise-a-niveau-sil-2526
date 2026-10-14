@@ -23,7 +23,7 @@ Projet de mise à niveau du semestre 1 — **Licence 3 SIL**, année universitai
 | Dossier | Contenu |
 |---|---|
 | `TP1/` à `TP13/` | 13 travaux pratiques C++ : saisie et validation, tableaux et algorithmes de tri, Mastermind, calcul de dates, histogramme, classes (`Rectangle`, `Point`, `Compteur`, `Etudiant`), routage IPv4 / IPv6 / CIDR |
-| `Activite2_VB/` | Application Windows Forms **VB.NET** (.NET 8) : gestion des notes, classement au mérite avec rang, mentions par matière, édition de bulletins |
+| `Activite2_VB/` | Application Windows Forms **VB.NET** (.NET 8, Option Strict) : interface moderne aux couleurs de l'école, validation par champ, classement au mérite avec rang, mentions détaillées, statistiques de classe, recherche instantanée, export des bulletins en `.txt` et sauvegarde CSV |
 | `Activite3_WEB/` | Site vitrine statique en HTML/CSS : 23 filières agréées avec description, durée, matières et débouchés, section à propos (histoire depuis 1992, vision et mission), 8 partenaires, contact réel et formulaire — **100 % hors-ligne**, aucune ressource externe |
 | `Executables/` | 18 exécutables Windows précompilés (static), prêts à graver sur le CD de remise |
 | `captures/` | Captures d'écran du site et des programmes utilisées dans ce README |
